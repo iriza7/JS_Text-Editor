@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JS Text Editor</title>
+    <link rel="stylesheet" href="style/style.css">  
+</head>
+<style>
+    body {
+        background-image: url(img/fondo2.jpg);
+        display: flex;
+    }
+</style>
+
+<body>
+    <div id="allPage">
+        <form action="" name="form3">
+            <!---->
+            <div id="block1">
+                <p>JS Text Editor</p>
+                <p>Enter text here</p>
+                <h1>Enter text here</h1> </div>
+            <div id="buttons">
+                <input type="button" class="button1" onclick="change1()" value="Редагувати">
+                <input type="button" class="button1" onclick="style1()" value="Стилізувати">
+                <input type="button" class="button1" onclick="blockAll22()" value="БЛОКУВАТИ"> </div>
+            <!---->
+            <div id="block2">
+                <div>
+                    <textarea id="textarea1" value=""></textarea>
+                </div>
+                <div>
+                    <input type="button" class="button" onclick="save1()" value="Зберегти">
+                    <input type="button" class="button" onclick="add1()" value="Додати"> </div>
+            </div>
+            <!---->
+            <div id="block3"> Розмір тексту:
+                <input type="radio" class="rad" name="textSize" value="12pt" onclick="changeSize(12)">12pt
+                <input type="radio" class="rad" name="textSize" value="14pt" onclick="changeSize(14)">14pt
+                <input type="radio" class="rad" name="textSize" value="16pt" onclick="changeSize(16)">16pt
+                <input type="radio" class="rad" name="textSize" value="18pt" onclick="changeSize(18)">18pt
+                <input type="radio" class="rad" name="textSize" value="20pt" onclick="changeSize(20)">20pt
+                <!---->Література:
+                <select id="FontFamily1">
+                    <option name="FontFamily11" value="Tahoma">Tahoma</option>
+                    <option name="FontFamily11" value="Arial">Arial</option>
+                    <option name="FontFamily11" value="Times New Roman">Times NR</option>
+                    <option name="FontFamily11" value="Veranda">Veranda</option>
+                </select>
+                <!---->
+                <input type="button" id="textColor" class="colorBox" value="Колір Тексту" onclick="changeColor3()">
+                <input type="button" id="bgColor" class="colorBox" value="Колір Фону" onclick="changeFon3()">
+                <div id="colors">
+                    <div class="box" style="background: red"></div>
+                    <div class="box" style="background: blue"></div>
+                    <div class="box" style="background: green"></div>
+                    <div class="box" style="background: yellow"></div>
+                    <div class="box" style="background: gray"></div>
+                    <div class="box" style="background: purple"></div>
+                    <div class="box" style="background: red"></div>
+                    <div class="box" style="background: yellow"></div>
+                    <div class="box" style="background: red"></div>
+                </div>
+                <div id="colorsF">
+                    <div class="box" style="background: red"></div>
+                    <div class="box" style="background: blue"></div>
+                    <div class="box" style="background: green"></div>
+                    <div class="box" style="background: red"></div>
+                    <div class="box" style="background: yellow"></div>
+                    <div class="box" style="background: red"></div>
+                    <div class="box" style="background: yellow"></div>
+                    <div class="box" style="background: gray"></div>
+                    <div class="box" style="background: purple"></div>
+                </div>
+                <!---->
+                <div>
+                    <input type="checkbox" id="changeFontWeight33" value="bold" onchange="changeFontWeight3(this)"> Жирний текст
+                    <input type="checkbox" id="changeFontStyle33" value="oblique" onchange="changeFontStyle3(this)"> Курсивний текст </div>
+            </div>
+            <!--4) Add Table - List-->
+            <div id="block4">
+                <h2>Виберіть що саме ви хочете додати:</h2>
+                <div>
+                    <input type="radio" class="addElement" name="addElement" value="" onclick="changeView(true)" checked="true">Таблицю
+                    <input type="radio" class="addElement" name="addElement" value="" onclick="changeView(false)"> Список</div>
+                <!--For create Table-->
+                <div id="block4CreateTable">
+                    <form>
+                        <div>Введіть кількість Рядків таблиці:
+                            <input type="text" class="field4" id="cRows4"><span class="error" id="error1">Error data</span> </div>
+                        <div>Введіть кількість Стовпців таблиці:
+                            <input type="text" class="field4" id="cColumns4"><span class="error" id="error2">Error data</span> </div>
+                        <div>
+                            <h3>Стилізуйте таблицю:</h3></div>
+                        <div>Введіть Ширину комірки таблиці:
+                            <input type="text" class="field4" id="cellWidth"><span class="error" id="error3">Error data</span> </div>
+                        <div>Введіть Висоту комірки таблиці:
+                            <input type="text" class="field4" id="cellHeight"><span class="error" id="error4">Error data</span> </div>
+                        <div>Товщина:
+                            <input type="text" class="field4" id="tableStyleWeight"><span class="error" id="error5">Error data</span></div>
+                        <div> Тип Лінії:
+                            <select class="select4" id="tableStyleLine">
+                                <option value="solid">solid</option>
+                                <option value="dotted">dotted</option>
+                                <option value="double">double</option>
+                                <option value="dashed">dashed</option>
+                            </select> Колір Лінії:
+                            <select class="select4" id="tableStyleColor">
+                                <option value="black">black</option>
+                                <option value="red">red</option>
+                                <option value="blue">blue</option>
+                            </select>
+                        </div>
+                        <div>
+                            <input type="button" class="button" value="Створити Таблицю" onclick="createNewTable()"> </div>
+                    </form>
+                </div>
+                <!--For create List-->
+                <div id="block4CreateList">
+                    <div>
+                        <input type="radio" name="listType" value="ul" id="listUl" checked="true" onclick="listBlockDisplay(1)">Маркований
+                        <input type="radio" name="listType" value="ol" id="listOl" onclick="listBlockDisplay(2)">Нумерований </div>
+                    <div>
+                        <div id="blockListStyleUl">Тип Маркування списку:
+                            <select class="select4" id="listStyleUl">
+                                <option selected value="circle">circle</option>
+                                <option value="disc">disc</option>
+                                <option value="square">square</option>
+                            </select>
+                            <div>Введіть кількість елементів списку:
+                                <input type="text" class="field4" id="cListItemsUl"><span class="error" id="error11">Error data</span> </div>
+                        </div>
+                        <div id="blockListStyleOl">Тип Нумерування списку:
+                            <select class="select4" id="listTypeOl">
+                                <option selected value="1">1</option>
+                                <option value="a">a</option>
+                                <option value="I">I</option>
+                            </select>
+                            <div>Введіть кількість елементів списку:
+                                <input type="text" class="field4" id="cListItemsOl"><span class="error" id="error12">Error data</span> </div>
+                        </div>
+                    </div>
+                    <div>
+                        <input type="button" class="button" value="Створити Список" onclick="createNewList()"> </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="popUp"> Now the Application is blocked!!! To unblock enter correct password:
+        <input type="password" value="" id="pass">
+        <input type="button" value="Submit" onclick="unblockApp()"> </div>
+        <!---->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
